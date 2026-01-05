@@ -340,7 +340,7 @@ class ViTLayer(GradientCheckpointingLayer):
         self.seq_len_dim = 1
         self.attention = ViTAttention(config)
         self.intermediate = ViTIntermediate(config)
-        self.output = ViTOutput(config, layer_idx=None)
+        self.output = ViTOutput(config, layer_idx=layer_idx)
         self.layernorm_before = nn.LayerNorm(config.hidden_size, eps=config.layer_norm_eps)
         self.layernorm_after = nn.LayerNorm(config.hidden_size, eps=config.layer_norm_eps)
         self.layer_idx = layer_idx
